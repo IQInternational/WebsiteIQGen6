@@ -21,17 +21,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # THIS STEP WILL SHOW YOU THE FOLDER STRUCTURE
+      - name: List files (Debugging)
+        run: ls -R
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Or your preferred version
+          node-version: '20'
           cache: 'npm'
 
       - name: Install and Build
         run: |
-          cd project    # Navigates into your project folder
+          cd project
           npm install
-          npm run build # Generates the /project/dist folder
+          npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -39,7 +43,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Point this specifically to the folder where Vite put your built files
           path: './project/dist'
 
       - name: Deploy to GitHub Pages
