@@ -1,11 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/websiteIQ/',
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
+  // Bolt projects usually need this for GitHub Pages
+  base: './', 
 })
