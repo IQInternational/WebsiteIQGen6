@@ -32,7 +32,6 @@ jobs:
 
       - name: Install and Build
         run: |
-          cd project
           npm install
           npm run build
 
