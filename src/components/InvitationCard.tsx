@@ -130,7 +130,7 @@ export default function InvitationCard({
   };
 
   const getMorphStyle = (index: number) => {
-    let baseStyles = "inline-block font-sans font-black italic text-center transition-all duration-500 drop-shadow-[0_2px_10px_rgba(212,163,89,0.3)]";
+    let baseStyles = "inline-block font-sans font-black italic text-center transition-[opacity,transform] duration-500 drop-shadow-[0_2px_10px_rgba(212,163,89,0.3)]";
     switch (index) {
       case 0: baseStyles += " text-rose-400"; break;
       case 1: baseStyles += " text-pink-400"; break;
@@ -140,20 +140,20 @@ export default function InvitationCard({
     }
     if (index !== currentIndex) {
       switch (index) {
-        case 0: return `${baseStyles} opacity-0 scale-75 blur-md -translate-y-2`;
+        case 0: return `${baseStyles} opacity-0 scale-75 -translate-y-2`;
         case 1: return `${baseStyles} opacity-0 scale-50 -rotate-12`;
         case 2: return `${baseStyles} opacity-0 w-0 overflow-hidden`;
         case 3: return `${baseStyles} opacity-0 translate-x-2 rotate-12`;
-        case 4: return `${baseStyles} opacity-0 scale-110 filter brightness-200`;
+        case 4: return `${baseStyles} opacity-0 scale-110`;
         default: return baseStyles;
       }
     } else {
       switch (index) {
-        case 0: return `${baseStyles} opacity-100 scale-100 blur-0 translate-y-0 ease-out`;
+        case 0: return `${baseStyles} opacity-100 scale-100 translate-y-0`;
         case 1: return `${baseStyles} opacity-100 scale-110 rotate-0`;
         case 2: return `${baseStyles} opacity-100 w-auto`;
         case 3: return `${baseStyles} opacity-100 translate-x-0 rotate-0`;
-        case 4: return `${baseStyles} opacity-100 scale-100 filter brightness-100 duration-300`;
+        case 4: return `${baseStyles} opacity-100 scale-100`;
         default: return baseStyles;
       }
     }
@@ -224,7 +224,7 @@ export default function InvitationCard({
             </div>
 
             <div
-              className="font-display font-bold text-[#5a4a3a] space-y-1 text-center transition-all duration-700 text-[13px] md:text-[14px] tracking-wide antialiased"
+              className="font-display font-bold text-[#5a4a3a] space-y-1 text-center transition-[opacity,transform] duration-700 text-[13px] md:text-[14px] tracking-wide antialiased"
               style={{ opacity: grow ? 1 : 0, transform: grow ? 'translateY(0)' : 'translateY(4px)', transitionDelay: '0.6s' }}
             >
               <p className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] block">ព្រះរាជាណាចក្រកម្ពុជា</p>
@@ -235,22 +235,22 @@ export default function InvitationCard({
           {/* MIDDLE SECTION */}
           <div className="w-full flex flex-col gap-4 px-2 my-auto justify-center items-center">
             <div
-              className="font-display font-bold text-[#4a3a2a] transition-all duration-700 leading-[1.6] flex flex-col gap-1 items-center w-full text-[17px] md:text-[19px] tracking-wide"
+              className="font-display font-bold text-[#4a3a2a] transition-[opacity,transform] duration-700 leading-[1.6] flex flex-col gap-1 items-center w-full text-[17px] md:text-[19px] tracking-wide"
               style={{ opacity: grow ? 1 : 0, transform: grow ? 'translateY(0)' : 'translateY(4px)', transitionDelay: '0.8s' }}
             >
-              <p className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.12)]">សូមគោរពអញ្ចើញលោកគ្រូ</p>
-              <p className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.12)]">អ្នកគ្រូដើម្បីចូលរួមប្រារព្ធ</p>
+              <p className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.12)]">សូមគោរពអញ្ចើញលោកគ្រូអ្នកគ្រូ</p>
+              <p className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.12)]">ដើម្បីចូលរួមប្រារព្ធ</p>
             </div>
 
             <h1
-              className="font-display font-black text-[#8b6914] transition-all duration-700 leading-tight text-[26px] md:text-[32px] block text-center tracking-wide drop-shadow-[0_2px_8px_rgba(139,105,20,0.3)]"
+              className="font-display font-black text-[#8b6914] transition-[opacity,transform] duration-700 leading-tight text-[26px] md:text-[32px] block text-center tracking-wide drop-shadow-[0_2px_8px_rgba(139,105,20,0.3)]"
               style={{ opacity: grow ? 1 : 0, transform: grow ? 'translateY(0)' : 'translateY(4px)', transitionDelay: '1s' }}
             >
               ពិធីរំលឹកគុណគ្រូ
             </h1>
 
             <h2
-              className="font-display font-bold text-[#9a7b4f] transition-all duration-700 leading-none text-[19px] md:text-[22px] block text-center tracking-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.1)]"
+              className="font-display font-bold text-[#9a7b4f] transition-[opacity,transform] duration-700 leading-none text-[19px] md:text-[22px] block text-center tracking-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.1)]"
               style={{ opacity: grow ? 1 : 0, transform: grow ? 'translateY(0)' : 'translateY(4px)', transitionDelay: '1.15s' }}
             >
               <span className="inline-flex items-baseline justify-center gap-2">
@@ -299,7 +299,7 @@ export default function InvitationCard({
                   ref={buttonRef}
                   onClick={handleRSVP}
                   disabled={hasRSVP}
-                  className={`relative overflow-hidden rounded-full flex-1 py-2.5 font-ios font-semibold text-white text-sm tracking-wide shadow-[0_4px_24px_rgba(184,144,83,0.35)] transition-all active:scale-[0.97] ${
+                  className={`relative overflow-hidden rounded-full flex-1 py-2.5 font-display font-semibold text-white text-sm tracking-wide shadow-[0_4px_24px_rgba(184,144,83,0.35)] transition-all active:scale-[0.97] ${
                     hasRSVP
                       ? 'bg-gradient-to-r from-[#b8860b] via-[#d4a853] to-[#b8860b] opacity-60 cursor-default shadow-none'
                       : 'bg-gradient-to-r from-[#c9953a] via-[#d4a853] to-[#b8860b] hover:from-[#d4a853] hover:via-[#e4b863] hover:to-[#c9953a]'
