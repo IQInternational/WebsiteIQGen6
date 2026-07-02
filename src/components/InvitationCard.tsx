@@ -98,8 +98,8 @@ export default function InvitationCard({
   grow,
   onRSVP,
   hasRSVP,
-  leftPhotoUrl = `${import.meta.env.BASE_URL}logo.png`,
-  rightPhotoUrl = `${import.meta.env.BASE_URL}moeys.png`
+  leftPhotoUrl = "/logo.png",
+  rightPhotoUrl = "/moeys.png"
 }: InvitationCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showInfo, setShowInfo] = useState(false);
